@@ -6,6 +6,11 @@
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']" position="before">
+                    <button name="update_product_description" string="Update Product Description"
+                            class="oe_link oe_left" type="object"
+                            groups="purchase.group_purchase_user,purchase.group_purchase_manager"/>
+                </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
                     <attribute name="options">{'no_quick_create': True}</attribute>
                 </xpath>
